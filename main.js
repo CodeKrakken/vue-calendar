@@ -8,9 +8,11 @@ function renderDay(events) {
 
 Vue.component('calendar-day', {
   template: `
-    <div>
-      {{ events }}
-    </div>
+    <ul>
+      <div v-for="event in events">
+        <li>{{ event }}</li>
+      </div>
+    </ul>
   `,
   data() {
     return {
