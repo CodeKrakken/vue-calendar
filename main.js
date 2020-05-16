@@ -9,11 +9,11 @@ function renderDay(events) {
 Vue.component('calendar-day', {
   template: `
     <ul>
-      <div v-for="event in events">
-        <div 
-          class="full"
-          v-bind:class = "{ clash: event.isClash }"
-        >
+      <div v-for="event in events"
+        class="full">
+          <div 
+            v-bind:class = "{ clash: event.isClash }"
+          >
           <li>{{ event.start }} - {{ event.end }}</li>
         </div>
       </div>
