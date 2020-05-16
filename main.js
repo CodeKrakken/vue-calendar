@@ -6,20 +6,24 @@ function renderDay(events) {
   app.events = events
 }
 
-Vue.component('testing', {
+Vue.component('calendar-day', {
   template: `
     <div>
-      Hello!
-    </div>`
+      {{ events }}
+    </div>
+  `,
+  data() {
+    return {
+      events: []
+    }
+  }
 })
 
 var app = new Vue({
   el: '#app',
   template: `
-    <div>
-      {{ events }}
-    </div>
-    `,
+    <calendar-day></calendar-day>
+  `,
   data: {
     events: []
   }
