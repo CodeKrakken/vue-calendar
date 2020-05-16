@@ -46,10 +46,12 @@ var app = new Vue({
     format(event) {
       var startMinutes = ((event.start + 540) % 60)
       var endMinutes = ((event.end + 540) % 60)
+      var startHours = Math.floor((event.start + 540) / 60)
+      var endHours = Math.floor((event.end + 540) / 60)
       if (startMinutes < 10) { startMinutes = startMinutes + "0" }
       if (endMinutes < 10) { endMinutes = endMinutes + "0" }
-      event.start = Math.floor((event.start + 540) / 60) + ":" + startMinutes
-      event.end = Math.floor((event.end + 540) / 60) + ":" + endMinutes
+      event.start = startHours + ":" + startMinutes
+      event.end = endHours + ":" + endMinutes
     }
   }
 })
