@@ -11,9 +11,11 @@ body {
 }
 
 .clash {
-  color: red
+  color: red;
+  width: 50%
 }
 
 .full {
-  color: green
+  color: green;
+  width: 100%
 }
