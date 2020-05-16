@@ -3,7 +3,9 @@ var eventBus = new Vue()
 Vue.config.devtools = true
 
 function format(event) {
-  event.start = Math.floor((event.start + 540) / 60) + ":" + ((event.end + 540) % 60)
+  var startMinutes = ((event.start + 540) % 60)
+  if (startMinutes < 10) { startMinutes = startMinutes + "0"}
+  event.start = Math.floor((event.start + 540) / 60) + ":" + startMinutes
   event.end = Math.floor((event.end + 540) / 60) + ":" + ((event.end + 540) % 60);
 }
 
