@@ -3,7 +3,7 @@ var eventBus = new Vue()
 Vue.config.devtools = true
 
 function renderDay(events) {
-  app.events = events
+  app.events = events.sort((a, b) => a.start - b.start) 
 }
 
 Vue.component('calendar-day', {
@@ -33,6 +33,9 @@ var app = new Vue({
     <calendar-day :events="events"></calendar-day>
   `,
   data: {
-    events: []
-  }
+    events: [],
+    eventStarts: []
+  },
 })
+
+window.renderDay([{start: 30, end: 120}, {start: 300, end: 330}, {start: 290, end: 330}])
