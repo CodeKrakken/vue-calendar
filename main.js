@@ -18,7 +18,7 @@ Vue.component('calendar-day', {
   template: `
     <ul>
       <div v-for="event in events">
-        <li>{{ event }}</li>
+        <li>{{ event.start }} - {{ event.end }}</li>
       </div>
     </ul>
   `,
