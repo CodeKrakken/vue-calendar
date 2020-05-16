@@ -10,13 +10,18 @@ Vue.component('calendar-day', {
   template: `
     <ul>
       <div v-for="event in events">
-        <li>{{ event.start }} - {{ event.end }}</li>
+        <div 
+          class="full"
+          v-bind:class = "{ clash: event.isClash }"
+        >
+          <li>{{ event.start }} - {{ event.end }}</li>
+        </div>
       </div>
     </ul>
   `,
   data() {
     return {
-      events: []
+      events: [],
     }
   },
   props: {
@@ -56,4 +61,4 @@ var app = new Vue({
   }
 })
 
-window.renderDay([{start: 30, end: 120}, {start: 300, end: 330}, {start: 290, end: 330}])
+window.renderDay([{start: 30, end: 120, isClash: false}, {start: 300, end: 330, isClash: true}, {start: 290, end: 330, isClash: true}])
