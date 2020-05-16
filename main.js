@@ -2,7 +2,15 @@ var eventBus = new Vue()
 
 Vue.config.devtools = true
 
+function formatTime(event) {
+  event.start += 540;
+  event.end += 540
+}
+
 function renderDay(events) {
+  events.forEach(event =>
+    formatTime(event)
+  )
   app.events = events.sort((a, b) => a.start - b.start) 
 }
 
