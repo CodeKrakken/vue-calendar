@@ -16,13 +16,19 @@ Vue.component('calendar-day', {
     return {
       events: []
     }
+  },
+  props: {
+    events: {
+      type: Array,
+      required: true
+    }
   }
 })
 
 var app = new Vue({
   el: '#app',
   template: `
-    <calendar-day></calendar-day>
+    <calendar-day :events="events"></calendar-day>
   `,
   data: {
     events: []
