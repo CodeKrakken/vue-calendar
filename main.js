@@ -2,6 +2,10 @@ var eventBus = new Vue()
 
 Vue.config.devtools = true
 
+function renderDay(events) {
+  app.events = events
+}
+
 Vue.component('testing', {
   template: `
     <div>
@@ -11,5 +15,12 @@ Vue.component('testing', {
 
 var app = new Vue({
   el: '#app',
-  
+  template: `
+    <div>
+      {{ events }}
+    </div>
+    `,
+  data: {
+    events: []
+  }
 })
