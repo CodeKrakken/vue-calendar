@@ -4,9 +4,11 @@ Vue.config.devtools = true
 
 function format(event) {
   var startMinutes = ((event.start + 540) % 60)
-  if (startMinutes < 10) { startMinutes = startMinutes + "0"}
+  var endMinutes = ((event.end + 540) % 60)
+  if (startMinutes < 10) { startMinutes = startMinutes + "0" }
+  if (endMinutes < 10) { endMinutes = endMinutes + "0" }
   event.start = Math.floor((event.start + 540) / 60) + ":" + startMinutes
-  event.end = Math.floor((event.end + 540) / 60) + ":" + ((event.end + 540) % 60);
+  event.end = Math.floor((event.end + 540) / 60) + ":" + endMinutes
 }
 
 function renderDay(events) {
