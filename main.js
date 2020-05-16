@@ -2,16 +2,16 @@ var eventBus = new Vue()
 
 Vue.config.devtools = true
 
-function formatTime(event) {
-  event.start += 540;
-  event.end += 540
+function format(event) {
+  event.start = Math.floor((event.start + 540) / 60) + ":" + ((event.end + 540) % 60)
+  event.end = Math.floor((event.end + 540) / 60) + ":" + ((event.end + 540) % 60);
 }
 
 function renderDay(events) {
+  app.events = events.sort((a, b) => a.start - b.start)
   events.forEach(event =>
-    formatTime(event)
-  )
-  app.events = events.sort((a, b) => a.start - b.start) 
+    format(event)
+  ) 
 }
 
 Vue.component('calendar-day', {
