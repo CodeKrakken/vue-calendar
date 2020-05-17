@@ -10,12 +10,9 @@ Vue.component('calendar-day', {
   template: `
     <ul>
       <div v-for="event in events"
-        class="full">
-          <div
-            v-bind:style = "{ width: (100/(event.clashes+1)) + '%' }"
-          >
-          {{ event.start }} - {{ event.end }}
-        </div>
+      v-bind:style = "{ width: (100/(event.clashes+1)) + '%' }"
+      >
+        {{ event.start }} - {{ event.end }}
       </div>
     </ul>
   `,
