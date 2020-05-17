@@ -1,5 +1,3 @@
-var eventBus = new Vue()
-
 Vue.config.devtools = true
 
 function renderDay(events) {
@@ -23,7 +21,9 @@ Vue.component('calendar-day', {
       </div>
       <div class="events">
         <div v-for="event in events"
-        :style = "{ width: (100/(event.clashes+1)) + '%', top: (event.start/6) + '%', height: (event.end-event.start)/6 + '%' }"
+        :style = "{ width: (100/(event.clashes+1)) + '%', 
+        top: (event.start/6) + '%', 
+        height: (event.end-event.start)/6 + '%' }"
         class="event"
         >
           {{ event.startTime }} - {{ event.endTime }}
@@ -81,4 +81,5 @@ var app = new Vue({
   }
 })
 
-window.renderDay([{start: 30, end: 120}, {start: 300, end: 330}, {start: 290, end: 330}])
+window.renderDay([{start: 0, end: 300}, {start: 295, end: 530}, {start: 5, end: 120}])
+
