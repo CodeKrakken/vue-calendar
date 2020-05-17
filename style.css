@@ -4,9 +4,18 @@ body {
   margin: 0px;
 }
 
+.page {
+  background-image: url('page-background.jpg');
+  width: 100%;
+  height: 100%;
+  position: absolute; 
+  top: 0; 
+  left: 0;
+}
 .events {
   display:flex;
   flex-wrap:wrap;
+  width: 80%
 }
 
 .event {
