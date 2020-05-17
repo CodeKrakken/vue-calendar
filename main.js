@@ -4,7 +4,26 @@ function renderDay(events) {
   app.renderDay(events)
 }
 
-Vue.component('timeline', {
+Vue.component('calendar-event', {
+  template: `
+    <div
+    :style = "{ width: (100/(event.clashes+1)) + '%', 
+    top: (event.start/6) + '%', 
+    height: (event.end-event.start)/6 + '%' }"
+    class="event"
+    >
+      {{ event.startTime }} - {{ event.endTime }}
+    </div>
+  `,
+  props: {
+    event: {
+      type: Function,
+      required: true
+    }
+  }
+})
+
+Vue.component('time-line', {
   template: `
     <div class="timeline">
         <div class="hour">9</div>
@@ -24,16 +43,11 @@ Vue.component('timeline', {
 Vue.component('calendar-day', {
   template: `
     <div class="page">
-      <timeline></timeline>
+      <time-line></time-line>
       <div class="events">
-        <div v-for="event in events"
-        :style = "{ width: (100/(event.clashes+1)) + '%', 
-        top: (event.start/6) + '%', 
-        height: (event.end-event.start)/6 + '%' }"
-        class="event"
-        >
-          {{ event.startTime }} - {{ event.endTime }}
-        </div>
+        <calendar-event 
+        v-for="event in events" 
+        :event="event"><calendar-event>
       </div>
     </div>
   `,
