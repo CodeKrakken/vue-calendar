@@ -23,7 +23,7 @@ Vue.component('calendar-day', {
       </div>
       <div class="events">
         <div v-for="event in events"
-        :style = "{ width: (100/(event.clashes+1)) + '%' }"
+        :style = "{ width: (100/(event.clashes+1)) + '%', top: (event.start/6) + '%' }"
         class="event"
         >
           {{ event.startTime }} - {{ event.endTime }}
