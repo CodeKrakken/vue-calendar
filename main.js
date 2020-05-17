@@ -45,18 +45,15 @@ var app = new Vue({
       app.events = events.sort((a, b) => a.start - b.start)
       events.forEach(event => {
         this.findClashes(event)
-        this.format(event)
+        this.formatTime(event)
       })
     },
-    format(event) {   
-      var startMinutes = ((event.start + 540) % 60)
-      var endMinutes = ((event.end + 540) % 60)
-      var startHours = Math.floor((event.start + 540) / 60)
-      var endHours = Math.floor((event.end + 540) / 60)
-      if (startMinutes < 10) { startMinutes = startMinutes + "0" }
-      if (endMinutes < 10) { endMinutes = endMinutes + "0" }
-      event.start = startHours + ":" + startMinutes
-      event.end = endHours + ":" + endMinutes
+    formatTime(event) {
+  const nineOClock = 60 * 9;
+  const startDate = dateFns.addMinutes(new Date(2020, 5, 1), nineOClock + event.start);
+  const endDate = dateFns.addMinutes(new Date(2020, 5, 1), nineOClock + event.end);
+  event.start = dateFns.format(startDate, "HH:mm")
+  event.end = dateFns.format(endDate, "HH:mm");
     },
     findClashes(event1) {
       this.events.forEach(event2 => {
