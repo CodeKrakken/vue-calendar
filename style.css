@@ -16,7 +16,12 @@ body {
 }
 
 .event {
-  border: 1px solid pink;
+  border: 10px solid #240954;
+  height: 100px;
   box-sizing: border-box;
-  text-align: center
+  background: cyan;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: ridge
 }
