@@ -6,21 +6,6 @@ function renderDay(events) {
   app.renderDay(events)
 }
 
-Vue.component('event', {
-  template: `
-    <div
-      v-bind:style = "styleObject"
-    >
-  `,
-  data() {
-    return {
-      styleObject: {
-        width: "100%"
-      },
-    }
-  }
-})
-
 Vue.component('calendar-day', {
   template: `
     <ul>
