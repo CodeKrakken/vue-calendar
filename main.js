@@ -23,7 +23,7 @@ Vue.component('calendar-day', {
       </div>
       <div class="events">
         <div v-for="event in events"
-        :style = "{ width: (100/(event.clashes+1)) + '%', top: (event.start/6) + '%' }"
+        :style = "{ width: (100/(event.clashes+1)) + '%', top: (event.start/6) + '%', height: (event.end-event.start)/6 + '%' }"
         class="event"
         >
           {{ event.startTime }} - {{ event.endTime }}
@@ -57,7 +57,6 @@ var app = new Vue({
       this.events = events.sort((a, b) => a.start - b.start)
       this.events.forEach(event => {
         this.findClashes(event)
-        console.log(event.clashes)
       });
       this.events.forEach(event => {
         this.formatTime(event)
@@ -75,8 +74,7 @@ var app = new Vue({
         if (!event1.clashes) { event1.clashes = 0 }
         if (!event2.clashes) { event2.clashes = 0 }
         if ((event1.end > event2.start) && (event2.end > event1.start) && (event1 !== event2)) {
-          event1.clashes ++;
-//           event2.clashes ++
+          event1.clashes ++
         }
       })
     }
