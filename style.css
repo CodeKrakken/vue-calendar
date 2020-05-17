@@ -29,12 +29,12 @@ body {
 }
 
 .events {
-  display:flex;
-  flex-wrap:wrap;
+  display: flex;
+  flex-wrap: wrap;
   width: 100%
 }
 
-.event {
+.calendar-event {
   border: 2px solid #240954;
   box-sizing: border-box;
   background: cyan;
