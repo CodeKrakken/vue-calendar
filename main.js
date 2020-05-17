@@ -8,14 +8,14 @@ function renderDay(events) {
 
 Vue.component('calendar-day', {
   template: `
-    <ul class="events">
+    <div class="events">
       <div v-for="event in events"
       :style = "{ width: (100/(event.clashes+1)) + '%' }"
       class="event"
       >
         {{ event.start }} - {{ event.end }}
       </div>
-    </ul>
+    </div>
   `,
   data() {
     return {

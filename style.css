@@ -4,12 +4,6 @@ body {
   margin: 0px;
 }
 
-.nav-bar {
-  background: linear-gradient(-90deg, #240954, #0000ff);
-  height: 60px;
-  margin-bottom: 15px;
-}
-
 .events {
   display:flex;
   flex-wrap:wrap;
