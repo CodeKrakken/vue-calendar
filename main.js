@@ -39,16 +39,16 @@ var app = new Vue({
   `,
   data: {
     events: [],
-    eventStarts: []
   },
   methods: {
     renderDay(events) {
       app.events = events.sort((a, b) => a.start - b.start)
-      events.forEach(event =>
+      events.forEach(event => {
+        this.findClashes(event)
         this.format(event)
-      ) 
+      })
     },
-    format(event) {
+    format(event) {   
       var startMinutes = ((event.start + 540) % 60)
       var endMinutes = ((event.end + 540) % 60)
       var startHours = Math.floor((event.start + 540) / 60)
@@ -57,8 +57,16 @@ var app = new Vue({
       if (endMinutes < 10) { endMinutes = endMinutes + "0" }
       event.start = startHours + ":" + startMinutes
       event.end = endHours + ":" + endMinutes
+    },
+    findClashes(event1) {
+      this.events.forEach(event2 => {
+        if ((event1.end > event2.start) && (event1 !== event2)) {
+          event1.isClash = true;
+          event2.isClash = true
+        }
+      })
     }
   }
 })
 
-window.renderDay([{start: 30, end: 120, isClash: false}, {start: 300, end: 330, isClash: true}, {start: 290, end: 330, isClash: true}])
+window.renderDay([{start: 30, end: 120, isClash: false}, {start: 300, end: 330, isClash: false}, {start: 290, end: 330, isClash: false}])
