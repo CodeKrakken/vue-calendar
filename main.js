@@ -87,7 +87,7 @@ var app = new Vue({
     formatTime(rawTime) {
       const nineOClock = 60 * 9;
       const date = dateFns.addMinutes(new Date(2020, 5, 1), nineOClock + rawTime);
-      return dateFns.format(date, "HH:mm")
+      return dateFns.format(date, "h:mma")
     },
     findClashes(event1) {
       this.events.forEach(event2 => {
