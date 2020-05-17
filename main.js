@@ -69,4 +69,4 @@ var app = new Vue({
   }
 })
 
-window.renderDay([{start: 30, end: 120, isClash: false}, {start: 300, end: 330, isClash: false}, {start: 290, end: 330, isClash: false}])
+window.renderDay([{start: 30, end: 120}, {start: 300, end: 330}, {start: 290, end: 330}])
