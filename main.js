@@ -6,13 +6,28 @@ function renderDay(events) {
   app.renderDay(events)
 }
 
+Vue.component('event', {
+  template: `
+    <div
+      v-bind:style = "styleObject"
+    >
+  `,
+  data() {
+    return {
+      styleObject: {
+        width: "100%"
+      },
+    }
+  }
+})
+
 Vue.component('calendar-day', {
   template: `
     <ul>
       <div v-for="event in events"
         class="full">
-          <div 
-            v-bind:class = "{ clash: event.isClash }"
+          <div
+            v-bind:style = "{ width: (100/(event.clashes+1)) + '%' }"
           >
           <li>{{ event.start }} - {{ event.end }}</li>
         </div>
@@ -57,9 +72,11 @@ var app = new Vue({
     },
     findClashes(event1) {
       this.events.forEach(event2 => {
+        if (!event1.clashes) { event1.clashes = 0 }
+        if (!event2.clashes) { event2.clashes = 0 }
         if ((event1.end > event2.start) && (event1 !== event2)) {
-          event1.isClash = true;
-          event2.isClash = true
+          event1.clashes ++;
+          event2.clashes ++
         }
       })
     }
