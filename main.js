@@ -14,7 +14,7 @@ Vue.component('calendar-day', {
           <div
             v-bind:style = "{ width: (100/(event.clashes+1)) + '%' }"
           >
-          <li>{{ event.start }} - {{ event.end }}</li>
+          {{ event.start }} - {{ event.end }}
         </div>
       </div>
     </ul>
