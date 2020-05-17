@@ -26,7 +26,7 @@ Vue.component('calendar-day', {
         :style = "{ width: (100/(event.clashes+1)) + '%' }"
         class="event"
         >
-          {{ event.start }} - {{ event.end }}
+          {{ event.startTime }} - {{ event.endTime }}
         </div>
       </div>
     </div>
@@ -54,26 +54,29 @@ var app = new Vue({
   },
   methods: {
     renderDay(events) {
-      app.events = events.sort((a, b) => a.start - b.start)
-      events.forEach(event => {
+      this.events = events.sort((a, b) => a.start - b.start)
+      this.events.forEach(event => {
         this.findClashes(event)
+        console.log(event.clashes)
+      });
+      this.events.forEach(event => {
         this.formatTime(event)
-      })
+      });
     },
     formatTime(event) {
-  const nineOClock = 60 * 9;
-  const startDate = dateFns.addMinutes(new Date(2020, 5, 1), nineOClock + event.start);
-  const endDate = dateFns.addMinutes(new Date(2020, 5, 1), nineOClock + event.end);
-  event.start = dateFns.format(startDate, "HH:mm")
-  event.end = dateFns.format(endDate, "HH:mm");
+      const nineOClock = 60 * 9;
+      const startDate = dateFns.addMinutes(new Date(2020, 5, 1), nineOClock + event.start);
+      const endDate = dateFns.addMinutes(new Date(2020, 5, 1), nineOClock + event.end);
+      event.startTime = dateFns.format(startDate, "HH:mm")
+      event.endTime = dateFns.format(endDate, "HH:mm");
     },
     findClashes(event1) {
       this.events.forEach(event2 => {
         if (!event1.clashes) { event1.clashes = 0 }
         if (!event2.clashes) { event2.clashes = 0 }
-        if ((event1.end > event2.start) && (event1 !== event2)) {
+        if ((event1.end > event2.start) && (event2.end > event1.start) && (event1 !== event2)) {
           event1.clashes ++;
-          event2.clashes ++
+//           event2.clashes ++
         }
       })
     }
