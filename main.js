@@ -26,7 +26,7 @@ Vue.component('calendar-event', {
 
 Vue.component('timeline-hour', {
   template: `
-    <div>
+    <div class="timeline-hour">
       {{ hour }}
     </div>
   `,
@@ -40,10 +40,11 @@ Vue.component('timeline-hour', {
 
 Vue.component('time-line', {
   template: `
-    <div>
-      <timeline-hour v-for="hour in hours"
-      :hour="hour"
-      class="hour"></timeline-hour>
+    <div class="time-line">
+      <timeline-hour 
+        v-for="hour in hours"
+        :hour="hour"
+      ></timeline-hour>
     </div>
   `,
   data() {
@@ -55,12 +56,13 @@ Vue.component('time-line', {
 
 Vue.component('calendar-day', {
   template: `
-    <div class="page">
+    <div class="calendar-day">
       <time-line></time-line>
-      <div class="events">
+      <div class="calendar-events">
         <calendar-event 
-        v-for="event in events" 
-        :event="event"><calendar-event>
+          v-for="event in events" 
+          :event="event"
+        ><calendar-event>
       </div>
     </div>
   `,
@@ -98,8 +100,8 @@ var app = new Vue({
       });
     },
     formatTime(rawTime) {
-      const nineOClock = 60 * 9;
-      const date = dateFns.addMinutes(new Date(2020, 5, 1), nineOClock + rawTime);
+      const nineAM = 60 * 9;
+      const date = dateFns.addMinutes(new Date(2020, 5, 16), nineAM + rawTime);
       return dateFns.format(date, "h:mma")
     },
     findClashes(event1) {
@@ -111,6 +113,3 @@ var app = new Vue({
     }
   }
 })
-
-window.renderDay([{start: 0, end: 300}, {start: 295, end: 530}, {start: 5, end: 120}])
-
