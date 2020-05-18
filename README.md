@@ -1,1 +1,2 @@
 # vue-calendar
+Hi! Thanks for taking a look at my Vue calendar. The entry point is the HTML - just get this open in your browser and it should open. Unfortunately I didn't get the events to all display in the right places - they know where they're supposed to go, but they don't go there. A CSS setting I should think. I also regret that I didn't implement a testing framework, but time did not permit this for me.

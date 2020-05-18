@@ -113,3 +113,6 @@ var app = new Vue({
     }
   }
 })
+
+// window.renderDay([{start: 0, end: 300}, {start: 295, end: 530}, {start: 5, end: 120}])
+
