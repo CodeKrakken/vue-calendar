@@ -6,11 +6,12 @@ function renderDay(events) {
 
 Vue.component('calendar-event', {
   template: `
-    <div
-    :style = "{ width: (100/(event.clashes+1)) + '%', 
-    top: (event.start/6) + '%', 
-    height: (event.end-event.start)/6 + '%' }"
-    class="calendar-event"
+    <div class="calendar-event"
+      :style = "{ 
+        width: (100/(event.clashes+1)) + '%',
+        height: (event.end-event.start)/6 + '%', 
+        top: (event.start/6) + '%' 
+      }"
     >
       {{ event.startTime }} - {{ event.endTime }}
     </div>
@@ -23,21 +24,33 @@ Vue.component('calendar-event', {
   }
 })
 
+Vue.component('timeline-hour', {
+  template: `
+    <div>
+      {{ hour }}
+    </div>
+  `,
+  props: {
+    hour: {
+      type: Number,
+      required: true
+    }
+  }
+})
+
 Vue.component('time-line', {
   template: `
-    <div class="timeline">
-        <div class="hour">9</div>
-        <div class="hour">10</div>
-        <div class="hour">11</div>
-        <div class="hour">12</div>
-        <div class="hour">13</div>
-        <div class="hour">14</div>
-        <div class="hour">15</div>
-        <div class="hour">16</div>
-        <div class="hour">17</div>
-        <div class="hour">18</div>
-      </div>
-  `
+    <div>
+      <timeline-hour v-for="hour in hours"
+      :hour="hour"
+      class="hour"></timeline-hour>
+    </div>
+  `,
+  data() {
+    return {
+      hours: [9,10,11,12,13,14,15,16,17,18]
+    }
+  }
 })
 
 Vue.component('calendar-day', {
