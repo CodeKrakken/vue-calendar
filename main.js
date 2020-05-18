@@ -114,5 +114,12 @@ var app = new Vue({
   }
 })
 
-// window.renderDay([{start: 0, end: 300}, {start: 295, end: 530}, {start: 5, end: 120}])
+// Manual tests
 
+// window.renderDay([{start: 60, end: 90}])
+// window.renderDay([{start: 60, end: 90}, {start: 120, end: 175}])
+// window.renderDay([{start: 60, end: 90}, {start: 75, end: 150}])
+// window.renderDay([{start: 60, end: 90}, {start: 75, end: 150}, {start: 65, end: 400}])
+// window.renderDay([{start: 60, end: 90}, {start: 75, end: 150}, {start: 65, end: 400}, {start: 400, end: 650}])
+// window.renderDay([{start: 60, end: 90}, {start: 75, end: 150}, {start: 65, end: 400}, {start: 400, end: 650}, {start: 500, end: 540}])
+// window.renderDay([{start: 30, end: 120}, {start: 300, end: 330}, {start: 290, end: 330}])
