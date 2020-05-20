@@ -1,5 +1,5 @@
 # Vue Calendar (work in progress)
-A simple day planner, build as a tech test. This is a frontend only, single page app coded in JavaScript, Vue, HTML and CSS.
+A simple day planner, built as a tech test. This is a frontend only, single page app coded in JavaScript, Vue, HTML and CSS.
 
 ## Installation and Usage
 * Clone the repository
