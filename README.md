@@ -8,4 +8,6 @@ A simple day planner, built as a tech test. This is a frontend only, single page
 * Start and end times should be given as integers representing minutes after 9am (eg 60 = 10am).
 
 ## Notes
-Currently it does not handle edge cases at all, and display problems arise with complex event conflicts. To be concluded anon.
+Currently it does not handle any edgecases, and display problems arise with complex event conflicts. To be concluded anon.
+
+## Screenshot
