@@ -1,2 +1,1 @@
 # vue-calendar
-Hi! Welcome to my Vue calendar. The entry point is the HTML - just get this open in your browser and it should run. Unfortunately I didn't get the events to all display correctly - all the attributes are calculated correctly, but a CSS quirk forces events too far down the screen for some reason. I also regret that I didn't implement a testing framework, but time did not permit this for me. However I did a fair amount of manual testing. Enjoy!
